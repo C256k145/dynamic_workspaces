@@ -48,7 +48,7 @@ function delete_desktop(number)
 function is_empty_desktop(number)
 {
 	var cls = workspace.clientList();
-	for (var i = 0; i < cls.length; ++i) {
+	for (let i = 0; i < cls.length; ++i) {
 		if (cls[i].desktop == number
 			&& !cls[i].skipPager // don't count hidden windows
 		) {
@@ -127,7 +127,7 @@ function on_desktop_changed(old_desktop, client)
 		}
 	} else if (workspace.currentDesktop === 1) {
 		// delete all empty desktops to the right if we switched to first
-		for (var i = 1; i < workspace.desktops; ++i) {
+		for (let i = 1; i < workspace.desktops; ++i) {
 			if (is_empty_desktop(i)) {
 				delete_desktop(i);
 				i -= 1;
